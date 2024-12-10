@@ -1,0 +1,15 @@
+##### This is a basic ansible playbook file with 2 tasks- installing and starting nginx.
+
+---
+-name: Install nginx and start nginx
+hosts: all
+become: root
+
+tasks:
+- name: Install nginx
+  apt: 
+    name: nginx
+    state: present
+
+- name: start nginx
+  shell: systemctl start nginx
