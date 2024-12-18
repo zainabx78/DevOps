@@ -33,7 +33,7 @@ The commit should look like this:
 
 ### Creating the Pipeline
 
-- Create a json file with the pipeline configuration details:
+- Create a json file with the pipeline configuration details in Cloud9 IDE environment:
 ```
 {
     "pipeline": {
@@ -99,4 +99,14 @@ The commit should look like this:
      "version": 1
     }
    }
+```
+- In CLoud9 IDE, ensure installation of AWS cli and python SDK (boto3)
+```
+aws --version
+pip show boto3
+```
+- Run the pipeline script and create the pipeline using cli command:
+```
+cd ~/environment/resources
+aws codepipeline create-pipeline --cli-input-json file://pipelinescriptfile.json
 ```
