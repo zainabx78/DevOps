@@ -105,8 +105,12 @@ The commit should look like this:
 aws --version
 pip show boto3
 ```
-- Run the pipeline script and create the pipeline using cli command:
+- Run the pipeline script and create the pipeline using cli command in the cloud9 terminal:
 ```
 cd ~/environment/resources
 aws codepipeline create-pipeline --cli-input-json file://pipelinescriptfile.json
 ```
+- In the CodePipeline console, your pipeline should have run.
+
+![Screenshot 2024-12-18 170359](https://github.com/user-attachments/assets/bf5d995a-0fb4-4a0d-b128-2ed4b5e0711a)
+
