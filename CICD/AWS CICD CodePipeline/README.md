@@ -57,7 +57,7 @@ The commit should look like this:
                }
              ],
              "configuration": {
-               "RepositoryName": "front_end_website",
+               "RepositoryName": "MyRepo",
                "BranchName": "main"
              },
              "runOrder": 1
