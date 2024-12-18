@@ -5,7 +5,7 @@
 - S3 bucket hosting website.
 - S3 bucket for CodePipeline.
 
-### Creating the Pipeline
+### Creating the repository
 
 - From AWS console, create a CodeCommit repository to host the code in. This repo is called MyRepo.
   
@@ -30,3 +30,73 @@
 
 The commit should look like this:
 ![Screenshot 2024-12-18 161743](https://github.com/user-attachments/assets/6ccf4f48-2496-41d4-9b0c-9e3e1c800d3f)
+
+### Creating the Pipeline
+
+- Create a json file with the pipeline configuration details:
+```
+{
+    "pipeline": {
+     "roleArn": "arn:aws:iam::808312730501:role/RoleForCodepipeline",
+     "stages": [
+       {
+         "name": "Source",
+         "actions": [
+           {
+             "inputArtifacts": [],
+             "name": "Source",
+             "actionTypeId": {
+               "category": "Source",
+               "owner": "AWS",
+               "version": "1",
+               "provider": "CodeCommit"
+             },
+             "outputArtifacts": [
+               {
+                 "name": "MyApp"
+               }
+             ],
+             "configuration": {
+               "RepositoryName": "front_end_website",
+               "BranchName": "main"
+             },
+             "runOrder": 1
+           }
+         ]
+       },
+       {
+         "name": "Deploy",
+         "actions": [
+           {
+             "inputArtifacts": [
+               {
+                 "name": "MyApp"
+               }
+             ],
+             "name": "CafeWebsite",
+             "actionTypeId": {
+               "category": "Deploy",
+               "owner": "AWS",
+               "version": "1",
+               "provider": "S3"
+             },
+             "outputArtifacts": [],
+             "configuration": {
+               "BucketName": "c137619a3513353l8783613t1w808312730501-s3bucket-nz1xnqcpul1v",
+               "Extract": "true",
+               "CacheControl": "max-age=14"
+             },
+             "runOrder": 1
+           }
+         ]
+       }
+     ],
+     "artifactStore": {
+       "type": "S3",
+       "location": "codepipeline-us-east-1-808312730501-website"
+     },
+     "name": "cafe_website_front_end_pipeline",
+     "version": 1
+    }
+   }
+```
