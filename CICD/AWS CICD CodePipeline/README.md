@@ -12,7 +12,7 @@
 ![Screenshot 2024-12-18 161025](https://github.com/user-attachments/assets/007ae4c0-159e-4448-86da-a52000b05ef1)
 
 - Create a test file to ensure correct permissions and configuration of the repository.
-- Create a file in the newly created repository and commit to the main branch. 
+- Create this file in the newly created repository and commit to the main branch. 
 
 ```
 <!DOCTYPE html>
@@ -27,5 +27,6 @@
     </body>
 </html>
 ```
-- The commit should look like this:
+
+The commit should look like this:
 ![Screenshot 2024-12-18 161743](https://github.com/user-attachments/assets/6ccf4f48-2496-41d4-9b0c-9e3e1c800d3f)
