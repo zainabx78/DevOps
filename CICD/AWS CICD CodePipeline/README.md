@@ -114,3 +114,4 @@ aws codepipeline create-pipeline --cli-input-json file://pipelinescriptfile.json
 
 ![Screenshot 2024-12-18 170359](https://github.com/user-attachments/assets/bf5d995a-0fb4-4a0d-b128-2ed4b5e0711a)
 
+- Since the target is configured as an S3 bucket, the test file should automatically have been added to the bucket once the pipeline was run. 
