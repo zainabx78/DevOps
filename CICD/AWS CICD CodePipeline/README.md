@@ -115,3 +115,7 @@ aws codepipeline create-pipeline --cli-input-json file://pipelinescriptfile.json
 ![Screenshot 2024-12-18 170359](https://github.com/user-attachments/assets/bf5d995a-0fb4-4a0d-b128-2ed4b5e0711a)
 
 - Since the target is configured as an S3 bucket, the test file should automatically have been added to the bucket once the pipeline was run. 
+
+### Extras
+
+- Can also configure CloudFront distrubution of the website by using the S3 bucket as the Cloudfront origin. Permissions need to be given to the Cloudfront distribution in the S3 bucket policy. Using Cloudfront with the CI/CD pipeline means the website can be globally distributed with reduced origin load. By combining CloudFront with S3, you get a powerful solution that balances performance, security, and cost-efficiency while offering the scalability and reliability needed for modern applications.
