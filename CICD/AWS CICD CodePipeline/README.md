@@ -73,7 +73,7 @@ The commit should look like this:
                  "name": "MyApp"
                }
              ],
-             "name": "CafeWebsite",
+             "name": "MyWebsite",
              "actionTypeId": {
                "category": "Deploy",
                "owner": "AWS",
@@ -95,7 +95,7 @@ The commit should look like this:
        "type": "S3",
        "location": "codepipeline-us-east-1-808312730501-website"
      },
-     "name": "cafe_website_front_end_pipeline",
+     "name": "website_front_end_pipeline",
      "version": 1
     }
    }
