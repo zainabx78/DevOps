@@ -6,7 +6,7 @@
 - I used a Terraform script to deploy an EC2 instance along with the necessary components such as VPC, subnets, security groups, Key pairs, an internet gateway and route tables. 
 - The terraform script can be found in my terraform folder in the DevOps repository.
 
-### Installing the necessary components:
+### Installing and configuring Jenkins:
 - Firstly, jenkins needs to be installed-
 ```
 sudo apt update
@@ -30,4 +30,5 @@ sudo systemctl start jenkins.service
 sudo systemctl status Jenkins
 
 ```
-- Use `ps -ef `
+- Use `ps -ef | grep jenkins ` to view jenkins running on port 8080 on the ec2 instance.
+- 
