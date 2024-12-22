@@ -13,7 +13,7 @@ sudo apt update
 
 sudo apt install openjdk-17-jre
 
-java -version
+java --version
  
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -30,3 +30,4 @@ sudo systemctl start jenkins.service
 sudo systemctl status Jenkins
 
 ```
+- Use `ps -ef `
