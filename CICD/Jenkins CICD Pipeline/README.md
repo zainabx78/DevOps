@@ -32,6 +32,8 @@ sudo systemctl status Jenkins
 ```
 - Use `ps -ef | grep jenkins ` to view jenkins running on port 8080 on the ec2 instance.
 - In google, go to `PublicIpOfEC2:8080` to access the jenkins server.
-- Use `cat /var/lib/jenkins/secrets/initialAdminPassword` to view the password and enter into the Jenkins server.
+- Use `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` to view the password and enter into the Jenkins server.
+  ![Screenshot 2024-12-22 195653](https://github.com/user-attachments/assets/afdecdf6-1c3c-4123-b9e2-52067480fc0c)
+
 - Install suggested plugins.
 
