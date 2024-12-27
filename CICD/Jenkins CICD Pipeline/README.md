@@ -60,4 +60,19 @@ Access SonarQube ----> In google, `publicIpEC2:9000`. SonarQube runs on port 900
 Connect SonarQube to jenkins:
 - In SonarQube ---> My account ---> Security ---> Create Token and copy it.
 - In jenkins ---> Manage Jenkins ---> Credentials ---> global credentials ---> add credential ---> secret text.
+
 ![Screenshot 2024-12-27 153323](https://github.com/user-attachments/assets/f33fdca6-7fbd-4313-af1a-05c9aa3d4e20)
+
+### Installing and configuring the Docker slave in the EC2 instance containing Jenkins and SonarQube:
+- In EC2, use root user `sudo su` after exiting the sonarqube user `exit`.
+```
+sudo apt install docker.io
+sudo su - 
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+systemctl restart docker
+```
+- Restart jenkins (add /restart at the end of the url port 8080).
+
+### Installing Kubernetes:
+- 
