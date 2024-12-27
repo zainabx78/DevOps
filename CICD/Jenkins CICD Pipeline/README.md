@@ -55,3 +55,4 @@ chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 ./sonar.sh start
 ```
+Access SonarQube ----> In google, `publicIpEC2:9000`. SonarQube runs on port 9000. 
