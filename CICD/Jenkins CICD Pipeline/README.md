@@ -60,3 +60,4 @@ Access SonarQube ----> In google, `publicIpEC2:9000`. SonarQube runs on port 900
 Connect SonarQube to jenkins:
 - In SonarQube ---> My account ---> Security ---> Create Token and copy it.
 - In jenkins ---> Manage Jenkins ---> Credentials ---> global credentials ---> add credential ---> secret text.
+![Screenshot 2024-12-27 153323](https://github.com/user-attachments/assets/f33fdca6-7fbd-4313-af1a-05c9aa3d4e20)
