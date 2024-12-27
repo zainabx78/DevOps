@@ -36,10 +36,9 @@ sudo systemctl status Jenkins
   
   ![Screenshot 2024-12-22 195653](https://github.com/user-attachments/assets/afdecdf6-1c3c-4123-b9e2-52067480fc0c)
 
-- Install suggested plugins.
+Install suggested plugins:
 - Install docker pipeline plugin in jenkins: This is so I can use a docker agent for my jenkins pipeline. The docker agent creates a docker container to execute all stages of a pipeline and then the container is deleted once the stages are complete. This leads to a more cost effective and lightweight approach to execute pipelines.
-
-Install SonarQube Scanner plugin:
+- Install SonarQube Scanner plugin.
 - Maven ---> maven is already installed on the docker plugin. 
 - Create a jenkins pipeline ---> link it to github repository which contains the jenkinsfile. The jenkins file can have any name and "jenkinsfile" name is not necessary. Save and apply.
 
