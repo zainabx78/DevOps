@@ -43,7 +43,7 @@ Install suggested plugins:
 
 Create a jenkins pipeline ---> link it to github repository which contains the jenkinsfile. The jenkins file can have any name and "jenkinsfile" name is not necessary. Save and apply.
 
-### Installing Sonar Server in the EC2:
+### Installing and configuring Sonar Server in the EC2:
 ```
   apt install unzip
 adduser sonarqube
@@ -56,4 +56,7 @@ cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 ./sonar.sh start
 ```
 Access SonarQube ----> In google, `publicIpEC2:9000`. SonarQube runs on port 9000. 
-- By default, the username and password are both `admin`. 
+- By default, the username and password are both `admin`.
+Connect SonarQube to jenkins:
+- In SonarQube ---> My account ---> Security ---> Create Token and copy it.
+- In jenkins ---> Manage Jenkins ---> Credentials ---> global credentials ---> add credential ---> secret text.
