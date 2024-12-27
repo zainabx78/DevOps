@@ -40,7 +40,8 @@ Install suggested plugins:
 - Install docker pipeline plugin in jenkins: This is so I can use a docker agent for my jenkins pipeline. The docker agent creates a docker container to execute all stages of a pipeline and then the container is deleted once the stages are complete. This leads to a more cost effective and lightweight approach to execute pipelines.
 - Install SonarQube Scanner plugin.
 - Maven ---> maven is already installed on the docker plugin. 
-- Create a jenkins pipeline ---> link it to github repository which contains the jenkinsfile. The jenkins file can have any name and "jenkinsfile" name is not necessary. Save and apply.
+
+Create a jenkins pipeline ---> link it to github repository which contains the jenkinsfile. The jenkins file can have any name and "jenkinsfile" name is not necessary. Save and apply.
 
 ### Installing Sonar Server in the EC2:
 ```
