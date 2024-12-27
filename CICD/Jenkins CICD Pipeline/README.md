@@ -38,6 +38,20 @@ sudo systemctl status Jenkins
 
 - Install suggested plugins.
 - Install docker pipeline plugin in jenkins: This is so I can use a docker agent for my jenkins pipeline. The docker agent creates a docker container to execute all stages of a pipeline and then the container is deleted once the stages are complete. This leads to a more cost effective and lightweight approach to execute pipelines.
-- Install SonarQube Scanner plugin.
+
+Install SonarQube Scanner plugin:
 - Maven ---> maven is already installed on the docker plugin. 
 - Create a jenkins pipeline ---> link it to github repository which contains the jenkinsfile. The jenkins file can have any name and "jenkinsfile" name is not necessary. Save and apply.
+
+### Installing Sonar Server in the EC2:
+```
+  apt install unzip
+adduser sonarqube
+su - sonarqube
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+unzip *
+chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
+chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+cd sonarqube-9.4.0.54424/bin/linux-x86-64/
+./sonar.sh start
+```
