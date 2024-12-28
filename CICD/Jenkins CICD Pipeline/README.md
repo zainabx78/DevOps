@@ -75,10 +75,10 @@ systemctl restart docker
 - Restart jenkins (add /restart at the end of the url port 8080).
 
 ### Installing Kubernetes:
-- Open powershell.
+- Open powershell ---> open wsl (ubuntu) terminal.
 ```
-winget install Kubernetes.minikube
-minikube version
+minikube start --driver=docker
 ```
-![Screenshot 2024-12-28 161814](https://github.com/user-attachments/assets/359f5b3e-aabb-44c8-bf91-06843cbd0cb4)
+![Screenshot 2024-12-28 170059](https://github.com/user-attachments/assets/b5c5e00e-7e1f-4474-96cc-18ec02800ccb)
+
 
