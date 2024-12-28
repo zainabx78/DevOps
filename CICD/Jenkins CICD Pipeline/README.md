@@ -1,4 +1,4 @@
-# Creating a CI/CD pipeline using Jenkins, Maven, SonarQube etc. 
+# Creating a CI/CD pipeline using Jenkins, Maven, SonarQube, Docker etc. 
 
 ![Untitled Diagram drawio](https://github.com/user-attachments/assets/af039afa-5198-4b58-8b29-0258f03de2cd)
 
@@ -27,7 +27,7 @@ sudo apt-get install jenkins
 
 sudo systemctl start jenkins.service
 
-sudo systemctl status Jenkins
+sudo systemctl status jenkins
 
 ```
 - Use `ps -ef | grep jenkins ` to view jenkins running on port 8080 on the ec2 instance.
