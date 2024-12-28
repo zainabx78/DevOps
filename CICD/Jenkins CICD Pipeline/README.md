@@ -88,5 +88,7 @@ kubectl create -f https://operatorhub.io/install/argocd-operator.yaml
 kubectl get csv -n operators
 ```
 ![Screenshot 2024-12-28 170927](https://github.com/user-attachments/assets/ed11c8d3-03ed-41bd-98e7-39a6322429e1)
+### Running the Jenkins pipeline
+![Screenshot 2024-12-28 180810](https://github.com/user-attachments/assets/67bfbb70-3b84-4a76-9a70-740ae8de5a28)
 
 
