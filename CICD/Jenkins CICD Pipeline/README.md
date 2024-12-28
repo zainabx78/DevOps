@@ -81,4 +81,12 @@ minikube start --driver=docker
 ```
 ![Screenshot 2024-12-28 170059](https://github.com/user-attachments/assets/b5c5e00e-7e1f-4474-96cc-18ec02800ccb)
 
+### Installing ArgoCD
+```
+curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.30.0/install.sh | bash -s v0.30.0
+kubectl create -f https://operatorhub.io/install/argocd-operator.yaml
+kubectl get csv -n operators
+```
+![Screenshot 2024-12-28 170927](https://github.com/user-attachments/assets/ed11c8d3-03ed-41bd-98e7-39a6322429e1)
+
 
