@@ -65,7 +65,7 @@
 
 - `git log` = see commit history 
 
-- `git log --online graph` = visual summary
+- `git log --oneline --graph` = visual summary
 
 - `git show <commit>` = view a specific commit
 

@@ -70,3 +70,20 @@ e.g. looks like this:
   - Make sure agent is running - `eval "$(ssh-agent -s)"`
   - Make sure git bash is using your private key `ssh-add ~/.ssh/coderco_key`
   - Add this key permenantly to git so don't have to keep doing this `printf "Host github.com\n  IdentityFile ~/.ssh/coderco_key\n" >> ~/.ssh/config`
+
+5. Initialize Repo, git add and git commit
+
+- `git init` in the folder you want. 
+- `git add .` - adds all the things in that folder to the staging part.
+- `git commit -m "Committing all my notes up to Git"` = commits the changes with a message.
+
+
+6. Link local repo to the remote repo 
+
+- Create a new repository.
+- `git remote set-url origin git@github.com:zainabx78/DevOps.git`
+- Make sure it's the SSH link off of github new repo.
+
+7. Git push 
+
+- `git push -u origin main`
