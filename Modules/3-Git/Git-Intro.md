@@ -3,6 +3,13 @@
 - Basic workflow: 
   - Working directory → git add → staging area → git commit → repository
 
+## Typical GIT workflow - working in a team
+
+1. Developer pulls latest main or clones repo.
+2. Creates feature branch.
+3. Works locally --> commits --> pushes branch
+4. Opens PR/MR --> review and merge
+5. Team syncs regularly via git pull --rebase or merge.
 
 
 ## Version Control 

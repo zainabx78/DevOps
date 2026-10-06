@@ -6,6 +6,7 @@
 - Let you work on multiple things at once without messing up the main branch. 
 
 - `git branch` = lists/creates branches.
+  - Shows existing branches.
 - `git checkout -b <branch>` = create and switch branch - older style.
 - `git switch -c <branch>` = modern version to switch branch and create new branch (-c).
 - `git switch <branch>` = switches branches safely (existing branch).

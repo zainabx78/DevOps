@@ -51,7 +51,7 @@
 - Files you're editing 
 
 
-### 2. Staging are
+### 2. Staging area
 
 - Changes marked for commit 
 
