@@ -58,3 +58,14 @@
   - Commands like git reset, git revert, and git stash.
 
 
+
+## .gitignore
+
+- Create a file called .gitignore.
+- Add any file names in there to make sure they're not tracked by git.
+- Good to hide sensitive files etc. 
+- `git status` to see what's being tracked. 
+
+e.g. don't wanna track:
+  - .env files.
+  - sensitive passwords/keys etc.

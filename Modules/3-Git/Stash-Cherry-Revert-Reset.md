@@ -32,6 +32,20 @@
 - Useful for hotfixes or targeted changes.
 
 
+- `git checkout -b feature-cherry`
+- `echo "hotfix config for prod" > hotfix.txt`
+- `git add hotfix.txt`
+- `git commit -m "hotfix - add prod config fix"`
+- `git push --set-upstream origin feature-cherry`
+- `git log --oneline`
+- Get that commit id and copy e.g. `57a34bc`
+
+The cherry pick part:
+
+- `git checkout main` --> go to the main branch
+- `git cherry-pick 57a34bc` --> everything in that commit will come to the main branch. 
+- `git push origin main` --> hotfix.txt will be in both branches now (main and cherry one).
+
 
 ## FORKS AND PULL REQUESTS (PR)
 

@@ -31,3 +31,5 @@ Each module has its own folder with notes, scripts and exercises.
 - Git Bash on Windows
 - VS Code
 - GitHub
+
+Update

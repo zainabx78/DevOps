@@ -119,3 +119,55 @@ Rebase takes your saves (E and F) and replays them on top of the latest main, as
 `A — B — C — G — H — E' — F'  ← feature`
 
 - DO NOT REBASE SHARED BRANCHES!
+
+
+## REBASE
+
+- Clean up commits.
+- Squash commits into one. 
+
+-  `git checkout -b feature-rebase` --> switches to a new branch.
+-  `echo "line 1" > changes.txt`
+-  `git add changes.txt`
+-  `git commit -m "add first line"`
+
+Another commit:
+
+- `echo "line 2" >> changes.txt`
+- `git status`
+- `git add changes.txt`
+- `cat changes.txt` --> see that both lines are there.
+- `git commit -m "add second line"`
+
+
+Another commit:
+
+- `echo "line 3" >> changes.txt`
+- `git status`
+- `git add changes.txt`
+- `cat changes.txt` --> see that 3 lines are there.
+- `git commit -m "add third line"`
+ 
+
+- `git log --oneline` - to see all 3 commits. 
+
+
+Final steps: squash all commits into one.
+
+- Keep history clean: `git rebase -i HEAD~3` = Rebase last 3 commits.
+- in the file opened -->  change the last 2 commits from `pick` to `squash` to make sure they all become one commit. 
+- save and `:wq!`
+
+![alt text](../Images/Squash.png)
+
+- Then need to add a commit message for that squash at the top of the 2nd file opened:
+
+![alt text](../Images/rebase2.png)
+
+- When doing `git log --oneline` - should see only one commit. 
+
+![alt text](../Images/rebase.png)
+
+
+PUSH THE 
+- `git push --set-upstream origin feature-rebase` = pushing to the feature branch to see the commit changes. 
