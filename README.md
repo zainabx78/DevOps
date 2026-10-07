@@ -9,7 +9,7 @@ Each module has its own folder with notes, scripts and exercises.
 |---|--------|----------------|--------|
 | 1 | [Linux](Modules/1-Linux) | Linux basics and the command line | ✅ Done |
 | 2 | [Bash](Modules/2-Bash) | Writing Bash scripts to automate tasks | ✅ Done |
-| 3 | [Git](Modules/3-Git) | Version control with Git and GitHub | 🔄 In progress |
+| 3 | [Git](Modules/3-Git) | Version control with Git and GitHub | ✅ Done |
 | 4 | Coming soon | | ⏳ Planned |
 
 ## Highlights
