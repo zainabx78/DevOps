@@ -5,7 +5,7 @@ services:
       - redis-data:/data
 
   app:
-    image: my-app:latest
+    image: app2:v1
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379

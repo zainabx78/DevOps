@@ -224,3 +224,16 @@ volumes:
 - `docker compose down -v`
 
 
+## Customising the app: 
+
+- Installed a better app - more customised. Has a button to go to the counter link.
+
+- Had to build a new image with the new app: `docker build -f Dockerfile.app -t app2:v1 .`
+- Change the image name in the docker-compose file. 
+- `docker compose up`
+
+
+![alt text](../../Images/projpersonalised.png)
+
+
+URL: `http://127.0.0.1:5000/`

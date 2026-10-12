@@ -48,4 +48,4 @@ USER appuser
 EXPOSE 5000
 
 # When the container starts, run python app.py to launch the app.
-CMD ["python", "app.py"]
+CMD ["python", "app2.py"]
