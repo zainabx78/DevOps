@@ -50,11 +50,7 @@ services:
 
 DONE! - CHECK WEB APP ON LOCAL HOST:5000
 
-![alt text](image.png)
+![alt text](../Images/dockersuccess2.png)
 
 - To stop the containers = `docker compose down`
 - To re-run containers after a change = `docker compose up -d --build` so it doesn't reuse previous image. 
-
-## Debugging
-
-![alt text](../Images/dockersuccess2.png)

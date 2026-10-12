@@ -7,7 +7,7 @@
 2. Dockerfile = recipe
 3. Image = snapshot
 4. Run Image as container
-5. Linking containers together (SQL).
+5. Linking 2 containers together (SQL).
 
 6. Creating the APP
 
@@ -97,7 +97,7 @@ CMD ["python", "app.py"]
 
 
 
-5. Linking Containers Together - To a MYSQL container.
+5. Linking Containers Together - app to a MYSQL container.
 
 - Add this into the app.py code: (just remove previous code).
 

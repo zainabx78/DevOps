@@ -1,8 +1,10 @@
-FROM python:3.8-slim
+
+
+# Stage 1: Build stage
+
+FROM python:3.8-slim as Build
 
 WORKDIR /app
-
-COPY . .
 
 RUN apt-get update && apt-get install -y \
     gcc \
@@ -10,7 +12,22 @@ RUN apt-get update && apt-get install -y \
     libmariadb-dev \
     pkg-config
 
-RUN pip install flask mysqlclient
+COPY . .
+
+RUN pip install --prefix=/install flask mysqlclient
+
+
+
+# Stage 2 - Production stage
+
+FROM python:3.8-slim 
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y libmariadb3 && rm -rf /var/lib/apt/lists/*
+
+COPY --from=build /install /usr/local
+COPY --from=build /app /app
 
 EXPOSE 5000
 
