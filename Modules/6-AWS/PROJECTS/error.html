@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #B9C6D2; --ink: #1F3347; --soft: #4B6177;
+    --cloud: #8E9FB0; --rain: #5E7C9C; --btn-text: #FFFFFF;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --sky: #121A26; --ink: #E3EAF2; --soft: #9FB0C3;
+            --cloud: #3A4A5E; --rain: #7FA3C9; --btn-text: #121A26; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--sky); color: var(--ink);
+    font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    display: grid; place-items: center; padding: 2rem;
+  }
+  main { max-width: 36rem; }
+  .raincloud { position: relative; width: 140px; height: 110px; margin-bottom: 2rem; }
+  .raincloud .body {
+    position: absolute; bottom: 50px; width: 140px; height: 46px;
+    border-radius: 46px; background: var(--cloud);
+  }
+  .raincloud .body::before, .raincloud .body::after {
+    content: ""; position: absolute; background: var(--cloud); border-radius: 50%;
+  }
+  .raincloud .body::before { width: 62px; height: 62px; top: -32px; left: 20px; }
+  .raincloud .body::after  { width: 46px; height: 46px; top: -22px; left: 70px; }
+  .drop {
+    position: absolute; top: 66px; width: 4px; height: 14px; border-radius: 4px;
+    background: var(--rain); animation: fall 1.2s linear infinite;
+  }
+  .d1 { left: 35px; } .d2 { left: 68px; animation-delay: .4s; } .d3 { left: 101px; animation-delay: .8s; }
+  @keyframes fall { from { transform: translateY(0); opacity: 1; } to { transform: translateY(34px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .drop { animation: none; } }
+  h1 { font-size: clamp(2.6rem, 9vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+  p { margin-top: 1.25rem; font-size: 1.15rem; color: var(--soft); line-height: 1.55; }
+  a {
+    display: inline-block; margin-top: 2rem; padding: .85rem 1.5rem; border-radius: 999px;
+    background: var(--ink); color: var(--btn-text); text-decoration: none; font-weight: 800;
+  }
+  a:focus-visible { outline: 3px solid var(--rain); outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main>
+    <div class="raincloud" aria-hidden="true">
+      <div class="body"></div>
+      <span class="drop d1"></span><span class="drop d2"></span><span class="drop d3"></span>
+    </div>
+    <h1>Sorry Zainab, nothing’s here</h1>
+    <p>This page doesn’t exist (error 404). The link might be wrong, or the page may have moved.</p>
+    <a href="/index.html">Go to home page</a>
+  </main>
+</body>
+</html>

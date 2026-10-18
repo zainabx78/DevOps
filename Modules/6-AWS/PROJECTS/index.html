@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hi Zainab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #CFE6F5; --ink: #12355B; --soft: #3F6487;
+    --sun: #FFC94A; --cloud: #FFFFFF;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --sky: #0E1B33; --ink: #E8F0FA; --soft: #A9BEDA;
+            --sun: #F3E6A1; --cloud: #23365A; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--sky); color: var(--ink);
+    font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    display: grid; place-items: center; overflow: hidden; position: relative;
+    padding: 2rem;
+  }
+  .sun {
+    position: absolute; top: 9%; right: 12%;
+    width: clamp(70px, 12vw, 140px); aspect-ratio: 1; border-radius: 50%;
+    background: var(--sun); box-shadow: 0 0 60px var(--sun);
+  }
+  .cloud {
+    position: absolute; height: 46px; border-radius: 46px; background: var(--cloud);
+    animation: drift 60s linear infinite;
+  }
+  .cloud::before, .cloud::after {
+    content: ""; position: absolute; background: var(--cloud); border-radius: 50%;
+  }
+  .cloud::before { width: 60px; height: 60px; top: -30px; left: 22px; }
+  .cloud::after  { width: 44px; height: 44px; top: -20px; left: 70px; }
+  .c1 { width: 150px; top: 22%; left: -160px; }
+  .c2 { width: 120px; top: 70%; left: -160px; animation-duration: 85s; animation-delay: -40s; }
+  .c3 { width: 170px; top: 45%; left: -160px; animation-duration: 110s; animation-delay: -70s; opacity: .8; }
+  @keyframes drift { to { transform: translateX(calc(100vw + 340px)); } }
+  @media (prefers-reduced-motion: reduce) { .cloud { animation: none; left: 8%; } .c2 { left: 60%; } .c3 { left: 30%; } }
+  main { position: relative; z-index: 1; max-width: 40rem; }
+  h1 {
+    font-size: clamp(4rem, 16vw, 11rem); font-weight: 800;
+    line-height: .9; letter-spacing: -0.04em;
+  }
+  p { margin-top: 1.5rem; font-size: clamp(1.1rem, 2.4vw, 1.4rem); color: var(--soft); max-width: 32rem; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="cloud c1" aria-hidden="true"></div>
+  <div class="cloud c2" aria-hidden="true"></div>
+  <div class="cloud c3" aria-hidden="true"></div>
+  <main>
+    <h1>Hi Zainab</h1>
+    <p>Your site is live and being served straight from the cloud. Nice work.</p>
+  </main>
+</body>
+</html>
