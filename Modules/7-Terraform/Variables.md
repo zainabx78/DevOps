@@ -234,3 +234,41 @@ module "app" {
 
 
 # ---------------------------------------------------------------------------------
+
+
+## TFVARS FILE
+
+- Declare the variable in a `.tf` file as normal, e.g. `variable "ami" { type = string }`.
+- Give it a value in a tfvars file in the root, e.g. `ami = "ami-897234873"`.
+- Name the file `terraform.tfvars` (or `something.auto.tfvars`) so it loads automatically. Any other name needs `terraform apply -var-file="name.tfvars"`.
+- A default is optional. The tfvars value overrides it. With no default and no tfvars value, Terraform will ask for one.
+
+
+
+- One set of code, different values per environment. Defaults go in variables.tf. Each environment (dev, staging, prod) gets a small tfvars file with only the values that differ.
+
+- Choose the environment when you run Terraform: `terraform apply -var-file="prod.tfvars"`. Anything the file doesn’t mention keeps its default.
+
+- If a value is set in several places, the most specific wins: default → terraform.tfvars → .auto.tfvars → -var-file= → -var= (strongest).
+
+E.g. 
+
+- Prod.tfvars:
+```yml
+# prod.tfvars
+instance_type = "t3.large"
+server_count  = 3
+
+```
+
+- dev.tfvars
+```yml
+# dev.tfvars
+# (could even be empty – dev just uses the defaults)
+```
+
+```
+terraform apply                            → uses defaults: 1 small server
+terraform apply -var-file="prod.tfvars"    → 3 large servers
+
+```

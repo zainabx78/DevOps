@@ -44,6 +44,3 @@ variable "public-subnet-cidr-2" {
 }
 
 
-variable "domain-name" {
-  default = "zainabf.co.uk"
-}
