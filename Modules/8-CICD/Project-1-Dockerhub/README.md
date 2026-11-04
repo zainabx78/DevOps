@@ -139,7 +139,8 @@ CONTAINER RUNS!
  
 ```yml
 
-name: Pushing Docker Image to Dockerhub via workflow
+
+name: Pushing Docker Image to Dockerhub via workflow- v2
 
 on: [push]
 
@@ -151,6 +152,12 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v4
 
+    - name: Login to Docker Hub
+      uses: docker/login-action@v4
+      with:
+        username: ${{ vars.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
     - name: Building the image 
       run: docker build -t zainabx1/weather-app:${{ github.run_number }} Modules/8-CICD/Project-1-Dockerhub
 
@@ -160,4 +167,15 @@ jobs:
     - name: Pushing image to dockerhub 
       run: docker push zainabx1/weather-app:${{ github.run_number }}
            docker push zainabx1/weather-app:latest
+
 ```
+- NEED TO FIGURE OUT HOW TO ADD THE CREDENTIALS AND SECRETS FOR TOKEN 
+
+  - Github repo --> settings --> secrets and variables --> actions
+  - New repo secret --> enter your secret there
+
+
+  - In Dockerhub -> account settings --> personal access tokens 
+  - Generate a token and put it in the secret: 
+  - Secret name: DOCKERHUB_TOKEN
+  - Secret name: DOCKERHUB_USERNAME
