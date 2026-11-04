@@ -1,6 +1,7 @@
 # Setup a pipeline which builds and pushes your container image to DockerHub (Container registry)
 
 - Did everything manually first to understand the steps and commands involved.
+- Then created a pipeline/workflow file to automate it. 
 
 
 ## Ensuring the docker container actually runs
@@ -136,9 +137,10 @@ CONTAINER RUNS!
 2. Create a `ci.yaml` file.
    - Need to push the image to DockerHub via the workflow file. 
    - This pipeline builds and pushes the image everytime there's a git push (any change is made).
+
+   - **Make sure this file is at the top of the repo structure in a .github/workflows folder!**
  
 ```yml
-
 
 name: Pushing Docker Image to Dockerhub via workflow- v2
 
@@ -170,7 +172,7 @@ jobs:
         docker push zainabx1/weather-app:latest
 
 ```
-- NEED TO FIGURE OUT HOW TO ADD THE CREDENTIALS AND SECRETS FOR TOKEN 
+### HOW TO USE THE SECRETS WITHIN THE WORKFLOW
 
   - Github repo --> settings --> secrets and variables --> actions
   - New repo secret --> enter your secret there
@@ -180,3 +182,75 @@ jobs:
   - Generate a token and put it in the secret: 
   - Secret name: DOCKERHUB_TOKEN
   - Secret name: DOCKERHUB_USERNAME
+
+  - Reference the secrets in the workflow file. 
+
+
+## RUNNING THE WORKFLOW
+
+- `git add . `
+- `git commit -m "running cicd pipeline"
+- `git push`
+- The push triggers the worfklow file to be executed. 
+
+![alt text](../../Images/gitpush.png)
+
+
+## SUCCESS: 
+
+- IN DOCKERHUB : IMAGE IS PUSHED AND TAGGED 
+
+![alt text](../../Images/Imagesuccess.png)
+
+
+- Pipeline successful 
+
+![alt text](<../../Images/pipeline success.png>)
+
+
+
+# Extra
+
+## Running container everytime image is updated
+
+- If I wanted to run a container using this newly created image every time the pipeline runs, I need to add an additional step at the end of the workflow file which:
+
+  - Downloads the latest image.
+  - Stops and removes the old container (ignoring the error if there isn't one yet).
+  - Starts a new container from the new image.
+
+- This step has to run on the machine where the app lives:
+  - On a server/cloud: GitHub connects to it over SSH (needs host, username and key).
+  - On my own PC: GitHub can't reach in, so either install a self-hosted runner on the PC, or skip the workflow step and use Watchtower to check Docker Hub and update the container automatically.
+
+
+- Install the runner on my PC
+  - On GitHub, I go to my project, then Settings → Actions → Runners → New self-hosted runner. I pick my PC's system (Windows, Mac or Linux), and GitHub shows me a few commands.
+  - I copy and paste them into a terminal on my PC one at a time, and press Enter to accept the defaults when it asks questions.
+
+At the end, it starts listening for jobs. That terminal window needs to stay open (or set it up as a service if it offers that), or nothing happens.
+- Add this to the end of the workflow file above
+
+```yml
+ deploy:
+    needs: build
+    runs-on: self-hosted
+
+    steps:
+    - name: Download the new image
+      run: docker pull zainabx1/weather-app:${{ github.run_number }}
+
+    - name: Remove the old container
+      run: docker rm -f weather-app
+      continue-on-error: true
+
+    - name: Start the new container
+      run: docker run -d --name weather-app -p 5000:5000 zainabx1/weather-app:${{ github.run_number }}
+```
+
+- `||` means - if that didn’t work, do this instead
+- So, e.g. `docker stop weather-app || true` = if the weather app doesn't exist/nothing to exist, move on (success).
+
+
+
+
