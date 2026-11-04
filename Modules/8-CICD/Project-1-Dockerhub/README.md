@@ -165,8 +165,9 @@ jobs:
       run: docker tag zainabx1/weather-app:${{ github.run_number }} zainabx1/weather-app:latest
 
     - name: Pushing image to dockerhub 
-      run: docker push zainabx1/weather-app:${{ github.run_number }}
-           docker push zainabx1/weather-app:latest
+      run: |
+        docker push zainabx1/weather-app:${{ github.run_number }}
+        docker push zainabx1/weather-app:latest
 
 ```
 - NEED TO FIGURE OUT HOW TO ADD THE CREDENTIALS AND SECRETS FOR TOKEN 
