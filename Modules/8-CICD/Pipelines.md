@@ -122,7 +122,7 @@ jobs:
    - Needs to be in the .github/workflows folder!
 
 
-```py
+```yml
 
 name: Zainab Combined # Workflow / pipeline name
 

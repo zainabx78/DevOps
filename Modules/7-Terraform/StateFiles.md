@@ -36,7 +36,7 @@
   2. Ensure the IAM user has the permissions to create, read and write to the s3 bucket. Also check bucket policies to make sure nothing is overriding these permissions. Error 403 with s3 is usually a permissions error. 
   3. Add the backend block within the terraform block:
 
-```
+```go
 
 terraform {
   required_providers {

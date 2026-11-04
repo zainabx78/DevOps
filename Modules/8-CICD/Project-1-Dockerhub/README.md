@@ -161,17 +161,33 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Building the image 
-      run: docker build -t zainabx1/weather-app:${{ github.run_number }} Modules/8-CICD/Project-1-Dockerhub
+      run: docker build -t zainabx1/weather-app:${{ github.sha }} Modules/8-CICD/Project-1-Dockerhub
 
     - name: Tagging image with latest as it's the latest image
-      run: docker tag zainabx1/weather-app:${{ github.run_number }} zainabx1/weather-app:latest
+      run: docker tag zainabx1/weather-app:${{ github.sha }} zainabx1/weather-app:latest
 
     - name: Pushing image to dockerhub 
       run: |
-        docker push zainabx1/weather-app:${{ github.run_number }}
+        docker push zainabx1/weather-app:${{ github.sha }}
         docker push zainabx1/weather-app:latest
 
+  deploy:
+    needs: build
+    runs-on: self-hosted
+
+    steps:
+    - name: Download the new image
+      run: docker pull zainabx1/weather-app:${{ github.sha }}
+
+    - name: Start a new container from the new image
+      run: docker run -d --name weather-app -p 5000:5000 zainabx1/weather-app:${{ github.sha }}
 ```
+
+- **Using Github SHA:**
+  
+  - A run number (`${{ github.run_number }}`) only tells you “this was the 9th run,” while a commit SHA points to the exact code the image was built from. 
+  - GitHub gives that as ${{ github.sha }}.
+
 ### HOW TO USE THE SECRETS WITHIN THE WORKFLOW
 
   - Github repo --> settings --> secrets and variables --> actions

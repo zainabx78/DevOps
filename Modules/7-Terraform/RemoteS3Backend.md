@@ -13,7 +13,7 @@
    1. Created a new folder called bootstrap - Includes creation of s3 bucket for the backend. It also creates a file called backend.hcl which is created in my nginx project folder because that's where I need the backend configured.
 
    - The backend.hcl file: Can also create yourself. 
-   ```
+   ```go
    bucket       = "your-bucket-name"
    key          = "nginx/terraform.tfstate"
    region       = "us-east-1"
@@ -22,7 +22,7 @@
    ```
    
    2.  Run the bootstrap file. 
-   ```
+   ```go
    cd bootstrap
    terraform init
    terraform apply
@@ -30,7 +30,7 @@
 
    3. Tell my project to use that s3 bucket - Provider file:
    
-   ```
+   ```go
    terraform {
       backend "s3" {}
    }
@@ -39,7 +39,7 @@
 
    4. Move my state over to the s3 bucket:
 
-   ```
+   ```go
    cd "../Project - Nginx"
    terraform init -backend-config=backend.hcl -migrate-state
 

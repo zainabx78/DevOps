@@ -1,0 +1,27 @@
+name: Zainab's automated testing pipeline
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: install terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: terraform fmt check
+      run: terraform fmt -check -recursive -diff
+      working-directory: Modules/8-CICD
+    
+    - name: install tflint
+      uses: terraform-linters/setup-tflint@v4
+
+    - name: run tflint
+      run: |
+        tflint --init
+        tflint --recursive
+      working-directory: Modules/8-CICD
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
