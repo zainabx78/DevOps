@@ -61,7 +61,8 @@ jobs:
 
     - name: terraform fmt check
       run: terraform fmt -check -recursive -diff
-      working-directory: Modules/8-CICD
+      working-directory: Modules/8-CICD/Project-2-Auto-Tests
+    
     
     - name: install tflint
       uses: terraform-linters/setup-tflint@v4
@@ -70,7 +71,8 @@ jobs:
       run: |
         tflint --init
         tflint --recursive
-      working-directory: Modules/8-CICD
+      working-directory: Modules/8-CICD/Project-2-Auto-Tests
+    
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
