@@ -152,7 +152,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Building the image 
-      run: docker build -t zainabx1/weather-app:${{ github.run_number }} 8-CICD/Project-1-Dockerhub
+      run: docker build -t zainabx1/weather-app:${{ github.run_number }} Modules/8-CICD/Project-1-Dockerhub
 
     - name: Tagging image with latest as it's the latest image
       run: docker tag zainabx1/weather-app:${{ github.run_number }} zainabx1/weather-app:latest
