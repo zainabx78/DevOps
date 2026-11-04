@@ -112,3 +112,12 @@ Options:
 - What amend actually does: 
   - instead of making a new commit, it opens up your last commit and slips the new changes into it. 
   - So you end up with one commit containing both notes.txt and meta.txt, rather than two separate ones.
+
+
+## ACTUAL EXAMPLE: 
+
+- I committed something but wanted to add something else to that commit to keep it tidy:
+  - `git reset --soft origin/main` Undo the unpushed commit, keeping your work
+  - `git rm -r --cached . -q`
+  - `git add .`
+  - `git commit -m "Add Terraform module notes and projects"` 

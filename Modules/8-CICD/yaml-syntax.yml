@@ -1,0 +1,22 @@
+
+# Key value pairs
+
+name: Food Bar
+age: 20
+job: Developer
+
+
+# Lists
+
+fruits:
+- apple
+- banana
+- cherry
+
+
+# Nested elements
+
+address:
+  street: 123 Downing Street
+  city: London
+  country: united kingdom

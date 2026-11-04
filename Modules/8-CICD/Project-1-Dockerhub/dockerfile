@@ -1,0 +1,39 @@
+
+# Stage 1: Build stage
+
+FROM python:3.8-slim as Build
+
+# Create a folder called /app and go into it. Everything after this happens inside that folder
+WORKDIR /app
+
+# Install everything on the shopping list. --no-cache-dir throws away leftover download files to keep things small. 
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# Copy the rest of your project (like app.py) into /app.
+COPY . .
+
+
+
+
+# Stage 2 - Production stage
+
+FROM python:3.8-slim 
+
+WORKDIR /app
+
+# Reach back into the “build” stage and grab the installed packages from /install. 
+# Put them in /usr/local, which is where Python automatically looks for packages.
+COPY --from=build /install /usr/local
+COPY --from=build /app /app
+
+# Create a normal, limited user called appuser
+RUN useradd appuser
+
+# Switch to that user, so the app doesn’t run as root (the all-powerful admin). 
+# Safer if someone breaks in.
+USER appuser
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
