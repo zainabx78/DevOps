@@ -135,8 +135,10 @@ CONTAINER RUNS!
 
 2. Create a `ci.yaml` file.
    - Need to push the image to DockerHub via the workflow file. 
+   - This pipeline builds and pushes the image everytime there's a git push (any change is made).
  
 ```yml
+
 name: Pushing Docker Image to Dockerhub via workflow
 
 on: [push]
@@ -149,8 +151,13 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v4
 
+    - name: Building the image 
+      run: docker build -t zainabx1/weather-app:${{ github.run_number }} .
 
-    - name: 
+    - name: Tagging image with latest as it's the latest image
+      run: docker tag zainabx1/weather-app:${{ github.run_number }} zainabx1/weather-app:latest
 
-
+    - name: Pushing image to dockerhub 
+      run: docker push zainabx1/weather-app:${{ github.run_number }}
+           docker push zainabx1/weather-app:latest
 ```
