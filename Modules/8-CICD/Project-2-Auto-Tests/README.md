@@ -58,6 +58,9 @@ jobs:
     steps:
     - name: install terraform
       uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_wrapper: false
+        # This wrapper ensures the pipeline ends here if error.
 
     - name: terraform fmt check
       run: terraform fmt -check -recursive -diff
@@ -77,8 +80,24 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
 ```
+3. Create the error in terraform file
+   - Removed the last curly bracket.
+   - This should cause some problems with formatting etc. 
 
-### ERROR: 
+
+### EXPECTED RESULT: With error, pipeline should fail. 
+
+![alt text](../../Images/fail.png)
+
+
+## Creating another error -
+   - Adding an unset variable. Terraform fmt should pass but tflint shouldnt. 
+
+
+
+
+
+### ERROR with git push: 
 
 - Accidentally pushed .terraform folder and it failed - big files!
 
@@ -95,3 +114,5 @@ FIX:
   - `git reset origin/main` = undoes commits that haven't been pushed successfully yet. 
   - `git add .`
   - `git status`
+
+
