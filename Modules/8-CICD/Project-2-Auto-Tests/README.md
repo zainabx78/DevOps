@@ -90,6 +90,11 @@ jobs:
 ![alt text](../../Images/fail.png)
 
 
+- Add this to the workflow file to ensure it fails at fmt and doesn't pass it to tflint.
+
+![alt text](../../Images/tflint.png)
+
+
 ## Creating another error -
    - Adding an unset variable. Terraform fmt should pass but tflint shouldnt. 
 

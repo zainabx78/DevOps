@@ -9,7 +9,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "eu-west-1"
+  region = var.region
 
   default_tags {
     tags = {
@@ -26,3 +26,4 @@ resource "aws_s3_bucket" "example" {
   tags = {
     Name        = "My bucket"
     Environment = "Dev"} 
+}
