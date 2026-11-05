@@ -96,7 +96,7 @@ jobs:
 
 
 ## Creating another error -
-   - Adding an unset variable. Terraform fmt should pass but tflint shouldnt. 
+   - tflint will catch best practices error - so can fix the previous error and just run the pipeline again. 
 
 
 
