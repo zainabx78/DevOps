@@ -96,8 +96,17 @@ jobs:
 
 
 ## Creating another error -
-   - tflint will catch best practices error - so can fix the previous error and just run the pipeline again. 
 
+   - tflint will catch best practices error - so can fix the previous error and just run the pipeline again. 
+  
+![alt text](../../Images/tflintsuccess.png)
+
+- This time fmt passed but tflint caught something else. 
+
+
+## No errors pipeline success:
+
+- Fixing previous error by adding `required_version` line in the terraform file. 
 
 
 
