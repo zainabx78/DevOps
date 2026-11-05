@@ -8,6 +8,7 @@
 
 ```go
 terraform {
+  #required_version = ">= 1.5.0" # This needs to be commented out so tflint can cause the pipeline to fail. 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -121,6 +122,14 @@ terraform {
 }
 
 ```
+
+- SUCCESS:
+
+![alt text](../../Images/TFLINTpassed.png)
+
+
+
+
 
 
 ### ERROR with git push: 
